@@ -2,6 +2,8 @@
 
 accelerationist-compass future generator
 
+Eventually would be cool to make this create an endless field of such futures, but need to figure out how to source images first
+
 ## Usage
 
 First, edit terms in `terms.txt`. The basic format is:
