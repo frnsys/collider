@@ -35,13 +35,14 @@ holy
 militar|ized
 nuclear
 autonomous
+eternal
 
 # noun
 war
 financ|e
 militar|y
 contractor
-livestream
+livestreamed
 extreme weather
 cult
 thaumaturgy
@@ -50,7 +51,6 @@ automation
 union
 soul
 reincarnation
-loop
 immigrant
 labor
 worker
@@ -92,6 +92,8 @@ rift
 militias
 collectives
 globalism
+gig economy
+solutionism
 
 # prefix
 post

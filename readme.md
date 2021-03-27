@@ -43,14 +43,14 @@ Then run `python main.py`
 ## Example Output
 
 ```
-anarcho-automated union-owned eden
-platform labor revolution
-platform worker utopia
-toxic automation corporatism
-survivalist war kingdoms
-hypo-commodified union-free colonies
-hypo-colonial protest democracy
-neo-agrarian time patchwork
-anti-platform soul colonies
-post-financial welfare-owned colonies
+anarcho-communal welfare-free patchwork
+psychadelic livestreamed federation
+commodified worker-free technocracy
+solar consumer-owned gig economy
+hypo-peaceful worker-owned federalism
+exa-colonial extreme weather federalism
+techno-sustainable civ-free communes
+anarcho-psychadelic welfare-owned revolution
+occult union kingdoms
+pseudo-occult soul earth
 ```
