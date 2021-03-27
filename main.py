@@ -3,7 +3,7 @@ import random
 
 
 def term_root(term):
-    return term.split('|')[0] if '|' in term else term
+    return term.split('|')[0]
 
 def fill_pattern(pattern, terms, roots=None):
     roots = roots or []
