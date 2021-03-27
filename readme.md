@@ -26,10 +26,13 @@ To avoid redundancy/repetition, you can use `|` to demarcate term "roots". When 
 
 ```
 # start
+{a} {b}
+
+# a
 sustain|able
 militar|ized
 
-# sub_pattern
+# b
 sustain|ability
 militar|y
 ```
