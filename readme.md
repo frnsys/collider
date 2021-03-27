@@ -65,3 +65,7 @@ Run `python main.py html`. This will create `index.html`, with contents like:
 ![](example.png)
 
 The only problem is the future generation has no "spatial" aspect to it, so the axes don't mean anything!
+
+## Infinite Fields
+
+The `fields/` directory has a javascript implementation and shows an infinite compass. It will generate new futures as you pan around
