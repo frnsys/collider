@@ -69,3 +69,5 @@ The only problem is the future generation has no "spatial" aspect to it, so the 
 ## Infinite Fields
 
 The `fields/` directory has a javascript implementation and shows an infinite compass. It will generate new futures as you pan around
+
+View it at [fields.spaceandtim.es](http://fields.spaceandtim.es/)
