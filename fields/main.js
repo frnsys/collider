@@ -1,4 +1,5 @@
 const debug = false;
+const padding = 10;
 const textHeight = 18;
 const cellSize = 200;
 const dpr = window.devicePixelRatio || 1;
@@ -32,21 +33,26 @@ function fillPattern(pattern, terms, roots) {
 }
 
 function getLines(ctx, text, maxWidth) {
-    var words = text.split(" ");
-    var lines = [];
-    var currentLine = words[0];
+    let lines = [];
+    let words = text.split(' ');
+    let currentLine = words[0];
 
-    for (var i = 1; i < words.length; i++) {
-        var word = words[i];
-        var width = ctx.measureText(currentLine + " " + word).width;
-        if (width < maxWidth) {
-            currentLine += " " + word;
-        } else {
-            lines.push(currentLine);
-            currentLine = word;
+    for (let i = 1; i < words.length; i++) {
+      let word = words[i];
+      let width = ctx.measureText(`${currentLine} ${word}`).width;
+      if (width < maxWidth) {
+        currentLine += ` ${word}`;
+      } else {
+        let height = textHeight;
+        let width = ctx.measureText(currentLine).width;
+        if (width > maxWidth) {
+          height = maxWidth/width * textHeight;
         }
+        lines.push({text: currentLine, height});
+        currentLine = word;
+      }
     }
-    lines.push(currentLine);
+  lines.push({text: currentLine, height: textHeight}); // TODO
     return lines;
 }
 
@@ -65,20 +71,17 @@ class Fields {
     let dragging = false;
     let start = {x: null, y: null};
     let rect = this.canvas.getBoundingClientRect();
-    this.offset = {x: rect.left, y: rect.top};
-    this.canvas.addEventListener('mousedown', (ev) => {
+    let startPan = ({clientX, clientY}) => {
       dragging = true;
       start = {
-        x: parseInt(ev.clientX - this.offset.x),
-        y: parseInt(ev.clientY - this.offset.y)
+        x: parseInt(clientX - this.offset.x),
+        y: parseInt(clientY - this.offset.y)
       };
-    });
-    this.canvas.addEventListener('mouseup', () => dragging = false)
-    this.canvas.addEventListener('mouseleave', () => dragging = false)
-    this.canvas.addEventListener('mousemove', (ev) => {
+    };
+    let updatePan = ({clientX, clientY}) => {
       let mouse = {
-        x: parseInt(ev.clientX - this.offset.x),
-        y: parseInt(ev.clientY - this.offset.y)
+        x: parseInt(clientX - this.offset.x),
+        y: parseInt(clientY - this.offset.y)
       };
 
       if (dragging) {
@@ -90,7 +93,15 @@ class Fields {
         this.ctx.translate(dx, dy);
         this.draw();
       }
-    });
+    };
+    this.offset = {x: rect.left, y: rect.top};
+    this.canvas.addEventListener('mousedown', (ev) => startPan(ev));
+    this.canvas.addEventListener('mouseup', () => dragging = false);
+    this.canvas.addEventListener('mouseleave', () => dragging = false);
+    this.canvas.addEventListener('mousemove', (ev) => updatePan(ev));
+    this.canvas.addEventListener('touchstart', (ev) => startPan(ev.touches[0]));
+    this.canvas.addEventListener('touchend', () => dragging = false);
+    this.canvas.addEventListener('touchmove', (ev) => updatePan(ev.touches[0]));
   }
 
   resize() {
@@ -139,29 +150,34 @@ class Fields {
 
         let x = (i * cellSize) + this.width/2 - cellSize/2;
         let y = (j * cellSize) + this.height/2 - cellSize/2;
-
-        // Draw cell square
-        this.ctx.beginPath();
-        this.ctx.lineWidth = 1;
-        this.ctx.strokeStyle = '#ffffff';
-        this.ctx.rect(x, y, cellSize, cellSize);
-        this.ctx.stroke();
-
-        // Draw text
-        this.ctx.font = `${textHeight}px Arial`;
-        this.ctx.fillStyle = '#ffffff';
-        this.ctx.textAlign = 'center';
-        if (debug) {
-          this.ctx.fillText(`${i}, ${j}`, x + cellSize/2, y + cellSize/2);
-        } else {
-          let text = fut.toUpperCase();
-          let lines = getLines(this.ctx, text, cellSize);
-          let totalHeight = textHeight * lines.length;
-          lines.forEach((line, i) => {
-            this.ctx.fillText(line, x + cellSize/2, y + cellSize/2 - totalHeight/2 + (i+1) * textHeight);
-          });
-        }
+        this.drawCell(fut, {x, y});
       }
+    }
+  }
+
+  drawCell(fut, {x, y}) {
+    // Draw cell square
+    this.ctx.beginPath();
+    this.ctx.lineWidth = 1;
+    this.ctx.strokeStyle = '#ffffff';
+    this.ctx.rect(x, y, cellSize, cellSize);
+    this.ctx.stroke();
+
+    // Draw text
+    this.ctx.fillStyle = '#ffffff';
+    this.ctx.textAlign = 'center';
+    if (debug) {
+      this.ctx.fillText(`${i}, ${j}`, x + cellSize/2, y + cellSize/2);
+    } else {
+      let currHeight = 0;
+      let text = fut.toUpperCase();
+      let lines = getLines(this.ctx, text, cellSize - padding);
+      let totalHeight = lines.reduce((acc, {height}) => acc + height, 0);
+      lines.forEach(({text, height}, i) => {
+        currHeight += height;
+        this.ctx.font = `${height}px Arial`;
+        this.ctx.fillText(text, x + cellSize/2, y + cellSize/2 - totalHeight/2 + currHeight);
+      });
     }
   }
 }
