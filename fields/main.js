@@ -94,6 +94,16 @@ class Fields {
         y: parseInt(clientY - this.offset.y)
       };
 
+      // Get cell under cursor
+      let pos = {
+        x: mouse.x - this.width/2 - this.pan.x - cellSize/2,
+        y: mouse.y - this.height/2 - this.pan.y + cellSize/2
+      };
+      this.focusedCell = {
+        x: Math.ceil(pos.x/cellSize),
+        y: Math.floor(pos.y/cellSize)
+      };
+
       if (dragging) {
         let dx = mouse.x - start.x;
         let dy = mouse.y - start.y;
@@ -101,8 +111,8 @@ class Fields {
         this.pan.x += dx;
         this.pan.y += dy;
         this.ctx.translate(dx, dy);
-        this.draw();
       }
+      this.draw();
     };
     this.offset = {x: rect.left, y: rect.top};
     this.canvas.addEventListener('mousedown', (ev) => startPan(ev));
@@ -157,15 +167,16 @@ class Fields {
           this.cells[i][j] = generate(this.terms);
         }
         let fut = this.cells[i][j];
-
-        let x = (i * cellSize) + this.width/2 - cellSize/2;
-        let y = (j * cellSize) + this.height/2 - cellSize/2;
-        this.drawCell(fut, {x, y});
+        this.drawCell(fut, {i, j});
       }
     }
   }
 
-  drawCell(fut, {x, y}) {
+  drawCell(fut, {i, j}) {
+    let focused = this.focusedCell && i == this.focusedCell.x && j == this.focusedCell.y;
+    let x = (i * cellSize) + this.width/2 - cellSize/2;
+    let y = (j * cellSize) + this.height/2 - cellSize/2;
+
     // Draw cell square
     this.ctx.beginPath();
     this.ctx.lineWidth = 1;
@@ -173,8 +184,13 @@ class Fields {
     this.ctx.rect(x, y, cellSize, cellSize);
     this.ctx.stroke();
 
+    if (focused) {
+      this.ctx.fillStyle = '#FDC246';
+    } else {
+      this.ctx.fillStyle = '#ffffff';
+    }
+
     // Draw text
-    this.ctx.fillStyle = '#ffffff';
     this.ctx.textAlign = 'center';
     if (debug) {
       this.ctx.fillText(`${i}, ${j}`, x + cellSize/2, y + cellSize/2);
