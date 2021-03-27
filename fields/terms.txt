@@ -16,7 +16,7 @@ survivalist
 platform
 occult
 agrarian
-automated
+auto|mated
 blooming
 psychadelic
 chemical
@@ -25,6 +25,7 @@ toxic
 irradiated
 peaceful
 commodified
+feminist
 collapse
 horror
 gothic
@@ -34,8 +35,18 @@ solar
 holy
 militar|ized
 nuclear
-autonomous
+auto|nomous
 eternal
+pessimist
+intergalactic
+communis|t
+industrial
+precari|ous
+rural
+endless
+terminal
+pastoral
+renewable
 
 # noun
 war
@@ -47,7 +58,7 @@ extreme weather
 cult
 thaumaturgy
 time
-automation
+auto|mation
 union
 soul
 reincarnation
@@ -60,8 +71,8 @@ welfare
 edgelord
 space
 civ
-protest
 gift
+carbon
 
 # form
 utopia
@@ -94,6 +105,20 @@ collectives
 globalism
 gig economy
 solutionism
+cooperatives
+damnation
+communis|m
+precari|ty
+arcologies
+pastoral|ism
+extinction
+urbanism
+agrarian|ism
+city-states
+capitalism
+annihilation
+secession
+migration
 
 # prefix
 post
@@ -111,6 +136,8 @@ ecto
 exa
 giga
 trans
+hypno
+psycho
 
 # suffix
 owned
