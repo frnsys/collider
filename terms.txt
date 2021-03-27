@@ -26,7 +26,6 @@ irradiated
 peaceful
 commodified
 feminist
-collapse
 horror
 gothic
 communal
@@ -47,6 +46,13 @@ endless
 terminal
 pastoral
 renewable
+guerilla
+nonhuman
+buddhist
+terrestrial
+sovereign
+freelance
+diesel
 
 # noun
 war
@@ -73,6 +79,9 @@ space
 civ
 gift
 carbon
+gamer
+prepper
+freelance|r
 
 # form
 utopia
@@ -119,6 +128,9 @@ capitalism
 annihilation
 secession
 migration
+decolonization
+scarcity
+collapse
 
 # prefix
 post
@@ -138,8 +150,11 @@ giga
 trans
 hypno
 psycho
+crypto
+mecha
+high
+low
 
 # suffix
-owned
 free
 core
