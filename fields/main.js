@@ -43,17 +43,27 @@ function getLines(ctx, text, maxWidth) {
       if (width < maxWidth) {
         currentLine += ` ${word}`;
       } else {
-        let height = textHeight;
-        let width = ctx.measureText(currentLine).width;
-        if (width > maxWidth) {
-          height = maxWidth/width * textHeight;
-        }
-        lines.push({text: currentLine, height});
+        lines.push({
+          text: currentLine,
+          height: lineHeight(ctx, currentLine, maxWidth)
+        });
         currentLine = word;
       }
     }
-  lines.push({text: currentLine, height: textHeight}); // TODO
-    return lines;
+  lines.push({
+    text: currentLine,
+    height: lineHeight(ctx, currentLine, maxWidth)
+  });
+  return lines;
+}
+
+function lineHeight(ctx, text, maxWidth) {
+  let width = ctx.measureText(text).width;
+  if (width > maxWidth) {
+    return maxWidth/width * textHeight;
+  } else {
+    return textHeight;
+  }
 }
 
 class Fields {
