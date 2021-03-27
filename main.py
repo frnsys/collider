@@ -19,17 +19,21 @@ def fill_pattern(pattern, terms, roots=None):
         pattern = pattern.replace(k, term, 1)
     return pattern
 
-
-if __name__ == '__main__':
+def generate(terms_file, n=10):
     terms = {}
-    for l in open('terms.txt', 'r').read().splitlines():
+    for l in open(terms_file, 'r').read().splitlines():
         if not l: continue
-        if l.startswith('#'):
+        if l.startswith('# '):
             key = l.strip('# ')
             terms[key] = []
         else:
             terms[key].append(l)
 
     starts = terms.pop('start')
-    for _ in range(10):
-        print(fill_pattern(random.choice(starts), terms))
+    for _ in range(n):
+        yield fill_pattern(random.choice(starts), terms)
+
+
+if __name__ == '__main__':
+    for future in generate('terms.txt', n=10):
+        print(future)
