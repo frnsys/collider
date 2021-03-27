@@ -2,6 +2,8 @@
 
 accelerationist-compass future generator
 
+View [fields.spaceandtim.es](http://fields.spaceandtim.es/)
+
 ## Usage
 
 First, edit terms in `terms.txt`. The basic format is:
