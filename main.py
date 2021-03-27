@@ -60,6 +60,7 @@ def generate_html(terms_file, outfile, side=3):
                 border: 1px solid #fff;
                 display: flex;
                 align-items: center;
+                padding: 0.5em;
             }}
         </style>
     </head>
@@ -83,7 +84,7 @@ if __name__ == '__main__':
         typ = 'text'
 
     if typ == 'html':
-        generate_html('terms.txt', 'index.html', n=3)
+        generate_html('terms.txt', 'index.html', side=3)
     else:
         for future in generate('terms.txt', n=10):
             print(future)
