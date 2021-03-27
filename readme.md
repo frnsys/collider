@@ -62,6 +62,6 @@ pseudo-occult soul earth
 
 Run `python main.py html`. This will create `index.html`, with contents like:
 
-![](shot.png)
+![](shot.png#1)
 
 The only problem is the future generation has no "spatial" aspect to it, so the axes don't mean anything!
