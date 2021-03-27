@@ -1,4 +1,4 @@
-# root
+# start
 {padj} {nounp} {form}
 
 # padj
@@ -10,8 +10,8 @@
 {noun}-{suffix}
 
 # adj
-sustainable
-financial
+sustain|able
+financ|ial
 survivalist
 platform
 occult
@@ -25,11 +25,21 @@ toxic
 irradiated
 peaceful
 commodified
+collapse
+horror
+gothic
+communal
+rogue
+solar
+holy
+militar|ized
+nuclear
+autonomous
 
 # noun
 war
-finance
-military
+financ|e
+militar|y
 contractor
 livestream
 extreme weather
@@ -45,7 +55,6 @@ immigrant
 labor
 worker
 consumer
-autonomy
 scavenger
 welfare
 edgelord
@@ -65,6 +74,7 @@ eden
 technocracy
 earth
 federation
+federalism
 kingdoms
 patchwork
 communes
@@ -78,6 +88,10 @@ corporatism
 state
 colonies
 domination
+rift
+militias
+collectives
+globalism
 
 # prefix
 post
@@ -91,6 +105,10 @@ anti
 necro
 techno
 anarcho
+ecto
+exa
+giga
+trans
 
 # suffix
 owned
