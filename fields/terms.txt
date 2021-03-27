@@ -1,0 +1,118 @@
+# start
+{padj} {nounp} {form}
+
+# padj
+{prefix}-{adj}
+{adj}
+
+# nounp
+{noun}
+{noun}-{suffix}
+
+# adj
+sustain|able
+financ|ial
+survivalist
+platform
+occult
+agrarian
+automated
+blooming
+psychadelic
+chemical
+colonial
+toxic
+irradiated
+peaceful
+commodified
+collapse
+horror
+gothic
+communal
+rogue
+solar
+holy
+militar|ized
+nuclear
+autonomous
+eternal
+
+# noun
+war
+financ|e
+militar|y
+contractor
+livestreamed
+extreme weather
+cult
+thaumaturgy
+time
+automation
+union
+soul
+reincarnation
+immigrant
+labor
+worker
+consumer
+scavenger
+welfare
+edgelord
+space
+civ
+protest
+gift
+
+# form
+utopia
+gardens
+democracy
+monarchy
+empire
+archipelago
+eden
+technocracy
+earth
+federation
+federalism
+kingdoms
+patchwork
+communes
+heteropia
+dystopia
+theocracy
+nomadism
+revolution
+society
+corporatism
+state
+colonies
+domination
+rift
+militias
+collectives
+globalism
+gig economy
+solutionism
+
+# prefix
+post
+hyper
+auto
+cyber
+neo
+pseudo
+hypo
+anti
+necro
+techno
+anarcho
+ecto
+exa
+giga
+trans
+
+# suffix
+owned
+free
+core
